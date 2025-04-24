@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: rgb(149, 119, 231);
+    }
+    h1 {
+        color:rgb(94, 69, 184)
+    }
+    button {
+        background-color: rgb(172, 135, 196);
+    }
+    button:hover {
+        background-color: rgb(51, 37, 68);
+    }
+</style>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dodawanie elementów</h1>
+        </header>
+        <main>
+            <input id='t1', type="text">Podaj rodzaj elementu np. p, button, h1, h4<br><br>
+            <input id='t2', type="text">Podaj treść elementu<br><br>
+            <button>Dodaj element</button>
+        </main>
+    </div>
+    <script>
+        const display = document.querySelector('main');
+        const btn = document.querySelector('button');
+        const t1 = document.querySelector('#t1');
+        const t2 = document.querySelector('#t2');
+
+        let i=1
+
+        btn.addEventListener('click', function () {
+            const par = document.createElement(t1.value);
+            par.innerText = `${t2.value}`;
+            par.addEventListener('click', function(){
+                this.remove()
+            })
+            display.append(par);
+            i++
+        });
+    </script>
+</body>
+</html>
